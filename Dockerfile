@@ -1,8 +1,7 @@
 FROM sauerburger/pdflatex:2020plus
 
-RUN apt update && \
-    apt install perl
-
+# Install requirements in order to make latexindent work
+RUN apt update && apt install perl
 RUN cpan -i App::cpanminus && \
 	cpanm YAML::Tiny && \
 	cpanm File::HomeDir && \
